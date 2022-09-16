@@ -1,6 +1,18 @@
 /**
- When we are using ipfs we actually upload the link of the metadata to the NFT as the baseURI
+When the actual link (https://learn-web3-dao-nft-collection-five.vercel.app/api/) 
+to our website that stores the api folder is visited
+ by opensea or other market places, the link having being stored in the contract,
+ this time with the token id added to it is returned in this manner
+ https://learn-web3-dao-nft-collection-five.vercel.app/api/1 "1" being the tokenID This token.js file
+ code will extract the ID from the url and create a json object for it, which is returned to 
+ the market place. 
 
+ So, the marketplace reads tokenURI as https://learn-web3-dao-nft-collection-five.vercel.app/api/1 , 
+ the front end the returns a metadata in json format as a result of these code lines 
+ written to fetch the ID, create a json object from it and return to the front end.
+ 
+ In the case of IPFS, the tokenURI will be a link to the "folder+tokenID" containing all the JSON objects of each NFT
+ 
  */
 export default function handler(req, res) {
     // get the tokenId from the query params
